@@ -33,13 +33,13 @@ High-quality SVG vector versions of traditional Spanish playing cards (Baraja Es
 
 The original artwork was created by [Basquetteur](https://commons.wikimedia.org/wiki/User:Basquetteur) and is available on [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Spanish_playing_cards).
 
-### License: CC BY-SA 3.0
+### License: CC BY-SA 4.0
 
-This work is licensed under the [Creative Commons Attribution-ShareAlike 3.0 Unported License](https://creativecommons.org/licenses/by-sa/3.0/).
+This work is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
 
 **You are free to:**
-- Share — copy and redistribute the material in any medium or format
-- Adapt — remix, transform, and build upon the material for any purpose, including commercially
+- **Share** — copy and redistribute the material in any medium or format
+- **Adapt** — remix, transform, and build upon the material for any purpose, including commercially
 
 **Under the following terms:**
 - **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
@@ -49,13 +49,65 @@ This work is licensed under the [Creative Commons Attribution-ShareAlike 3.0 Unp
 
 ```
 Spanish playing card artwork by Basquetteur (Wikimedia Commons)
-Licensed under CC BY-SA 3.0
-https://creativecommons.org/licenses/by-sa/3.0/
+Licensed under CC BY-SA 4.0
+https://creativecommons.org/licenses/by-sa/4.0/
 ```
 
-## Usage
+## Tools & Automation
 
-These SVGs are ideal for:
+### Image Conversion Script (`convert_cards.py`)
+
+A powerful Python script is included to convert the SVG collection into various raster formats and optimized vectors.
+
+#### Features
+- **Multi-format support**: Convert to PNG, JPEG, WebP, and AVIF.
+- **SVG Optimization**: Create smaller, cleaner SVG files by removing metadata and simplifying paths.
+- **Customizable**: Adjust output dimensions and image quality via command-line arguments.
+- **Batch Processing**: Process all cards at once or select specific files.
+- **Transparent backgrounds**: Handles transparency during conversion (JPEGs use a white background).
+
+#### Prerequisites
+
+To run the script, you need Python 3 and several dependencies. You can install them using:
+
+```bash
+pip install cairosvg pillow pillow-avif-plugin scour
+```
+
+*Note: `cairosvg` requires the Cairo system library to be installed on your machine (`libcairo2` on Linux, `cairo` on macOS via Homebrew).*
+
+#### Usage Examples
+
+**Convert all cards to PNG (default):**
+```bash
+python convert_cards.py
+```
+
+**Convert all cards to multiple formats with custom size:**
+```bash
+python convert_cards.py --formats png webp avif --width 414 --height 638
+```
+
+**Create optimized SVGs and high-quality JPEGs:**
+```bash
+python convert_cards.py --formats svg_optimized jpeg --quality 95
+```
+
+**Convert specific cards:**
+```bash
+python convert_cards.py --input card_coins_01.svg card_swords_12.svg --formats webp
+```
+
+#### Command Line Arguments
+- `--formats`: Target formats (choices: `png`, `jpeg`, `webp`, `avif`, `svg_optimized`). Default: `png`.
+- `--width`: Target width in pixels. Default: `207`.
+- `--height`: Target height in pixels. Default: `319`.
+- `--quality`: Image quality (1-100). Default: `90`.
+- `--input`: Specific SVG files to convert. If omitted, all SVGs in the directory are processed.
+
+## Integration & Usage
+
+These assets are ideal for:
 - Card game applications (Android, iOS, web)
 - Educational materials about Spanish/Italian card games
 - Print-on-demand products (with proper attribution)
