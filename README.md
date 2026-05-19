@@ -94,6 +94,21 @@ For Windows 10/11 users, a PowerShell wrapper `convert_cards.ps1` is provided to
 
 *Note: You may need to run `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` once to allow running local scripts.*
 
+#### Linux & macOS Support (Bash)
+
+For Unix-like systems, a shell script `convert_cards.sh` is provided.
+
+**Running on Linux/macOS:**
+1. Open a terminal in the project directory.
+2. Make the script executable (if not already):
+```bash
+chmod +x convert_cards.sh
+```
+3. Run the script:
+```bash
+./convert_cards.sh --formats webp png --width 400
+```
+
 #### Usage Examples
 
 **Convert all cards to PNG (default):**
